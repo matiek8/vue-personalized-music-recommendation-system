@@ -1,0 +1,188 @@
+@mixin normal-text {
+  font-size: var(--font-size-normal);
+  line-height: var(--line-height-normal);
+  color: var(--c-text);
+}
+
+@mixin normal-link {
+  @include normal-text;
+  color: var(--c-text-button);
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+@mixin small-primary-link {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  color: var(--c-action-primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin small-gray-link {
+  @include small-gray-text;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin normal-text-gray {
+  @include normal-text;
+  color: var(--c-label);
+}
+
+@mixin middle-text {
+  font-size: var(--font-size-middle);
+  line-height: var(--line-height-middle);
+  color: var(--c-text);
+}
+
+@mixin big-bold-text {
+  font-size: var(--font-size-big);
+  line-height: var(--line-height-big);
+  color: var(--c-text);
+  font-weight: var(--font-weight-bold);
+}
+
+@mixin big-text {
+  font-size: var(--font-size-big);
+  line-height: var(--line-height-big);
+  color: var(--c-text);
+}
+
+@mixin big-text-second {
+  font-size: var(--font-size-big-3);
+  line-height: var(--line-height-big-3);
+  font-weight: var(--font-weight-bold);
+  color: var(--c-text);
+}
+
+@mixin extra-big-text {
+  font-size: var(--font-size-extra-big);
+  line-height: var(--line-height-extra-big);
+  color: var(--c-text);
+  font-weight: var(--font-weight-bold);
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin component-frame {
+  width: 100%;
+  border-radius: var(--border-radius-normal);
+  background-color: var(--c-component-bg);
+}
+
+@mixin small-text {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  color: var(--c-text);
+}
+
+@mixin small-gray-text {
+  @include small-text;
+  color: var(--c-label);
+}
+
+@mixin extra-small-text {
+  font-size: var(--font-size-extra-small);
+  line-height: var(--line-height-extra-small);
+  font-weight: var(--font-weight-bold);
+  color: var(--c-text);
+}
+
+@mixin error-text {
+  font-size: var(--font-size-normal);
+  line-height: var(--line-height-normal);
+  color: var(--c-danger);
+}
+
+@mixin small-error-text {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  color: var(--c-danger);
+}
+
+@mixin text-overflow-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin abs {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+    border-radius: 10px;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+@mixin hide-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin default-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin after-indent($size) {
+  &:after {
+    content: '';
+    display: block;
+    height: $size;
+  }
+}
+
+@mixin clear-input {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  line-height: 21px;
+  outline: none;
+  border: none;
+  background: transparent;
+  color: var(--c-text);
+}
